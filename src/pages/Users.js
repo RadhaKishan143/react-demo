@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import api from "../api";
 import Userform from "../components/Userform";
+import { Link } from "react-router-dom";
 
 const Users = () => {
     const [users, setUsers] = useState([]);
@@ -47,7 +48,11 @@ const Users = () => {
                                         {
                                             users.map((user) => (
                                                 <tr key={user._id}>
-                                                    <td>{user.username}</td>
+                                                    <td>
+                                                        <Link to={`/users/${user._id}`}>
+                                                            {user.username}
+                                                        </Link>
+                                                    </td>
                                                     <td>{user.password}</td>
                                                     <td>
                                                         <a>Edit</a>

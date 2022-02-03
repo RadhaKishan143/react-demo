@@ -24,6 +24,7 @@ import SignUp from "./pages/SignUp";
 
 import Navigator from "./Navigator";
 import useUser from "./hooks/useUser";
+import SingleUser from "./pages/SingleUser";
 
 const AppRoute = () => {
     
@@ -43,7 +44,11 @@ const AppRoute = () => {
                         <Route path="/skills/completed" element={<Completed />} />
                     </Route>
 
-                    <Route path="/users" element={<Users />} />
+                    <Route path="users">
+                        <Route index element={<Users />} />
+                        <Route path="/users/:id" element={<SingleUser />} />
+                    </Route>
+
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/about" element={<About />} />
